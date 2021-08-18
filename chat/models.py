@@ -1,23 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
-
-
-# Create your models here.
-class ChatUser(models.Model):
-    SEX_TYPES = (('M', 'Мужчина'), ('W', 'Женщина'), ('N', 'Неопределенный'))
-    chat_user = models.OneToOneField(User, on_delete=models.CASCADE)
-    age = models.IntegerField(verbose_name='Возраст')
-    sex = models.CharField(max_length=50, choices=SEX_TYPES, default='N', verbose_name='Пол')
-    avatar = models.ImageField(upload_to='static/chat/images/', default='static/chat/images/default_avatar.jpg',
-                               verbose_name='Аватар')
-    joined_at = models.DateTimeField(auto_now_add=True, verbose_name='Время регистрации')
-
-    def __str__(self):
-        return self.chat_user.username
-
-    class Meta:
-        verbose_name = 'Пользователь чата'
-        verbose_name_plural = 'Пользователи чата'
+from django.contrib.auth.models import AbstractUser
 
 
 class Room (models.Model):
@@ -31,11 +13,28 @@ class Room (models.Model):
         verbose_name_plural = 'Комнаты'
 
 
+class User(AbstractUser):
+    REQUIRED_FIELDS = ['email', 'age']
+    SEX_CHOICES = (('M', 'Мужчина'), ('W', 'Женщина'), ('N', 'Неопределенный'))
+    age = models.IntegerField(verbose_name='Возраст')
+    sex = models.CharField(max_length=50, choices=SEX_CHOICES, default='N', verbose_name='Пол')
+    avatar = models.ImageField(upload_to='static/chat/images/', default='static/chat/images/default_avatar.jpg',
+                               verbose_name='Аватар')
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Чат-комната')
+
+    def __str__(self):
+        return self.username
+
+    class Meta:
+        verbose_name = 'Пользователь чата'
+        verbose_name_plural = 'Пользователи чата'
+
+
 class Message (models.Model):
-    author = models.ForeignKey(ChatUser, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField(blank=True, verbose_name='Сообщение')
     date = models.DateTimeField(auto_now_add=True, verbose_name='Время отправки сообщения')
-    room = models.ForeignKey(Room, on_delete=models.CASCADE)
+    room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name='Чат комната')
 
     def __str__(self):
         return f'{self.author}: {self.body[:15]}...'
