@@ -22,19 +22,38 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data=None, bytes_data=None):
         print(text_data)
         text_data_object = json.loads(text_data)
+        # TODO надо поставить отлов Анонимуса. Если появляется Анонимус, то данные в базу не сохраняются
+        author = text_data_object['author']
         message = text_data_object['message']
+        time = text_data_object['time']
+        room = text_data_object['room']
+        count = text_data_object['count']
 
         await self.channel_layer.group_send(
             self.chat_room_group_name,
             {
                 'type': 'chat_message',
-                'message': message
+                'author': author,
+                'message': message,
+                'time': time,
+                'room': room,
+                'count': count
             }
         )
 
     async def chat_message(self, event):
+        author = event['author']
         message = event['message']
+        time = event['time']
+        room = event['room']
+        count = event['count']
         await self.send(text_data=json.dumps(
-            {'message': message}
+            {
+                'author': author,
+                'message': message,
+                'time': time,
+                'room': room,
+                'count': count
+             }
         ))
         print(json.dumps(event))

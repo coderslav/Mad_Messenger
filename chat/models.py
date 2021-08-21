@@ -33,8 +33,10 @@ class User(AbstractUser):
 class Message (models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField(blank=True, verbose_name='Сообщение')
-    date = models.DateTimeField(auto_now_add=True, verbose_name='Время отправки сообщения')
+    date = models.DateTimeField(auto_now_add=True, verbose_name='Дата и время отправки сообщения')
+    time = models.CharField(max_length=10, default='00:00:00', verbose_name='Локальное время отправки')
     room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name='Чат комната')
+    count = models.IntegerField(verbose_name='Порядковый номер сообщения')
 
     def __str__(self):
         return f'{self.author}: {self.body[:15]}...'
