@@ -22,7 +22,6 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data=None, bytes_data=None):
         print(text_data)
         text_data_object = json.loads(text_data)
-        # TODO надо поставить отлов Анонимуса. Если появляется Анонимус, то данные в базу не сохраняются
         author = text_data_object['author']
         message = text_data_object['message']
         time = text_data_object['time']

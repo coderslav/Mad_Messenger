@@ -9,8 +9,10 @@ def index(request):
 
 
 def chat_room(request, chat_room_name):
+    messages = Message.objects.filter(room__name=chat_room_name)  # можно добавить кол-во сообщений через индексирование
     return render(request, 'chat/chat_room.html', {
-        'chat_room_name': chat_room_name
+        'chat_room_name': chat_room_name,
+        'messages': messages
     })
 
 

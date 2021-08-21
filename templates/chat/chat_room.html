@@ -1,5 +1,6 @@
             {#    TODO  - задать в JSON имя автора, время публикации и картинку; - установить каунтер нечетные - справа, четные слева #}
 {% load static %}
+{% load custom_filters_and_tags %}
 
 {{ chat_room_name|json_script:'chat-room-name' }}
 {{ user.username|json_script:'username' }}
@@ -23,6 +24,39 @@
   </header>
 
   <main class="msger-chat" id="msger-chatarea">
+      {% for message in messages %}
+          {% if message.count|modulo == 0 %}
+              <div class="msg right-msg" id = "{{ message.count|to_string }}">
+                    <div
+                    class="msg-img"
+                    style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+                    ></div>
+
+                    <div class="msg-bubble">
+                        <div class="msg-info">
+                          <div class="msg-info-name">{{ message.author }}:</div>
+                          <div class="msg-info-time">{{ message.time }}</div>
+                        </div>
+                        <div class="msg-text">{{ message.body }}</div>
+                    </div>
+                </div>
+          {% else %}
+              <div class="msg left-msg" id = "{{ message.count|to_string }}">
+                    <div
+                    class="msg-img left-msg"
+                    style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+                    ></div>
+
+                    <div class="msg-bubble left-msg">
+                        <div class="msg-info">
+                          <div class="msg-info-name">{{ message.author }}:</div>
+                          <div class="msg-info-time">{{ message.time }}</div>
+                        </div>
+                        <div class="msg-text">{{ message.body }}</div>
+                    </div>
+                </div>
+          {% endif %}
+      {% endfor %}
   </main>
 <form class="msger-inputarea">
     <input type="text" class="msger-input" id="input" placeholder="Введите сообщение">
