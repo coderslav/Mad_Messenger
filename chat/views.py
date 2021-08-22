@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from chat.models import *
+from .models import Message
 from rest_framework import generics
-from chat.serializers import *
+from chat.serializers import ChatUserDetailsSerializer
 
 
 def index(request):

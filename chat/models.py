@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 
 class Room (models.Model):
     name = models.CharField(max_length=50, unique=True, verbose_name='Название комнаты')
+    date = models.DateTimeField(auto_now_add=True, verbose_name='Дата и время отправки создания комнаты')
 
     def __str__(self):
         return self.name
@@ -20,7 +21,6 @@ class User(AbstractUser):
     sex = models.CharField(max_length=50, choices=SEX_CHOICES, default='N', verbose_name='Пол')
     avatar = models.ImageField(upload_to='static/chat/images/', default='static/chat/images/default_avatar.jpg',
                                verbose_name='Аватар')
-    room = models.ForeignKey(Room, on_delete=models.CASCADE, null=True, blank=True, verbose_name='Чат-комната')
 
     def __str__(self):
         return self.username

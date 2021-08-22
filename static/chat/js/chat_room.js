@@ -3,7 +3,16 @@ const parsedUsername = JSON.parse(document.getElementById('username').textConten
 const timeNow = new Date().toLocaleTimeString().slice(0,-3);
 const username = parsedUsername ? parsedUsername : 'Anonymous';
 const messages = document.getElementById('msger-chatarea');
-let counter = 1;
+messages.scrollTop = messages.scrollHeight;
+let counter = updateCounter();
+
+function updateCounter(){
+    if (document.querySelector('#msger-chatarea').lastElementChild){
+        return Number(document.querySelector('#msger-chatarea').lastElementChild.id) + 1;
+    } else {
+        return 1;
+    }
+}
 function inputMessage(){
     const messageInputDom = document.querySelector('#input');
     if (messageInputDom.value){
@@ -60,14 +69,9 @@ const chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + 
 chatSocket.onmessage = function (e){
     const data = JSON.parse(e.data);
     console.log(data);
-    if (document.querySelector('#msger-chatarea').lastElementChild){
-        if (document.querySelector('#msger-chatarea').lastElementChild.id === '1'){
-            insertHTMLright(data)
-            counter ++
-        } else {
-            insertHTMLleft(data)
-            counter ++
-        }
+    if (data.count % 2 === 0){
+        insertHTMLright(data)
+        counter ++
     } else {
         insertHTMLleft(data)
         counter ++

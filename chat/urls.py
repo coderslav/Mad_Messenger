@@ -1,5 +1,5 @@
 from django.urls import path
-from chat.views import *
+from chat.views import index, chat_room, CreateChatUserViewAPI
 
 urlpatterns = [
     path('', index, name='index'),
