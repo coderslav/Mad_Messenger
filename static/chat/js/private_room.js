@@ -1,4 +1,4 @@
-const chatRoomName = JSON.parse(document.getElementById('chat-room-name').textContent);
+const chatRoomName = JSON.parse(document.getElementById('private-room-name').textContent);
 const username = JSON.parse(document.getElementById('username').textContent);
 const timeNow = new Date().toLocaleTimeString().slice(0,-3);
 const messages = document.getElementById('msger-chatarea');
@@ -64,7 +64,7 @@ function insertHTMLleft(data){
     `);
 }
 
-const chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + chatRoomName + '/');
+const chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/private/' + chatRoomName + '/');
 
 chatSocket.onmessage = function (e){
     const data = JSON.parse(e.data);

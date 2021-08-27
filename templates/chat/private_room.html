@@ -2,7 +2,7 @@
 {% load static %}
 {% load custom_filters_and_tags %}
 
-{{ chat_room_name|json_script:'chat-room-name' }}
+{{ private_room_name|json_script:'private-room-name' }}
 {{ username_str|json_script:'username' }}
 
 <!DOCTYPE html>
@@ -10,13 +10,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="{% static 'chat/css/chat_room.css' %}" rel="stylesheet">
+    <link href="{% static 'chat/css/private_room.css' %}" rel="stylesheet">
 </head>
 <body>
 <section class="msger">
   <header class="msger-header">
     <div class="msger-header-title">
-      <i class="fas fa-comment-alt"></i> {{ chat_room_name }}
+      <i class="fas fa-comment-alt"></i>
+        Ваш диалог c
+        {% if username_str == talker_1.username %}
+        {{ talker_2.username }}
+        {% else %}
+        {{ talker_1.username }}
+        {% endif %}
     </div>
     <div class="msger-header-options">
       <span><i class="fas fa-cog"></i></span>
@@ -41,7 +47,7 @@
                     </div>
                 </div>
           {% else %}
-              <div class="msg left-msg" id = "{{ message.count_in_room}}">
+              <div class="msg left-msg" id = "{{ message.count_in_room }}">
                     <div
                     class="msg-img left-msg"
                     style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
@@ -63,6 +69,6 @@
     <input type="button" class="msger-send-btn" id="submit" value="Отправить">
 </form>
 </section>
-    <script src="{% static 'chat/js/chat_room.js'%}"></script>
+    <script src="{% static 'chat/js/private_room.js'%}"></script>
 </body>
 </html>
