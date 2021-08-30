@@ -75,11 +75,6 @@ body {
 .msg-img {
   width: 50px;
   height: 50px;
-  margin-right: 10px;
-  background: #ddd;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
   border-radius: 50%;
 }
 .msg-text {
@@ -89,7 +84,6 @@ body {
   max-width: 450px;
   padding: 15px;
   border-radius: 15px;
-  background: var(--left-msg-bg);
 }
 .msg-info {
   display: flex;
@@ -105,21 +99,21 @@ body {
   font-size: 0.85em;
 }
 
-.left-msg .msg-bubble {
-  border-bottom-left-radius: 0;
-}
-
-.right-msg {
-  flex-direction: row-reverse;
-}
 .right-msg .msg-bubble {
   background: var(--right-msg-bg);
   color: #fff;
   border-bottom-right-radius: 0;
   margin-left: auto;
   margin-right: 0;
+  flex-direction: row-reverse;
 }
 .right-msg .msg-img {
+  background: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-style: solid;
+  border-color: var(--right-msg-bg);
   margin-left: auto;
   margin-right: 0;
 }
@@ -133,6 +127,12 @@ body {
 }
 
 .left-msg .msg-img {
+  background: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-style: solid;
+  border-color: var(--left-msg-bg);
   margin-left: 0;
   margin-right: auto;
 }
@@ -166,6 +166,5 @@ body {
 }
 
 .msger-chat {
-  background-color: #fcfcfe;
+  background-color: rgba(0, 0, 0, 0.75);
 }
-

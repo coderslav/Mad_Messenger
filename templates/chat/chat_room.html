@@ -29,7 +29,7 @@
               <div class="msg right-msg" id = "{{ message.count_in_room }}">
                     <div
                     class="msg-img"
-                    style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+                    style="background-image: url({{ message.author.avatar.url }})"
                     ></div>
 
                     <div class="msg-bubble">
@@ -43,8 +43,8 @@
           {% else %}
               <div class="msg left-msg" id = "{{ message.count_in_room}}">
                     <div
-                    class="msg-img left-msg"
-                    style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+                    class="msg-img"
+                    style="background-image: url({{ message.author.avatar.url }})"
                     ></div>
 
                     <div class="msg-bubble left-msg">

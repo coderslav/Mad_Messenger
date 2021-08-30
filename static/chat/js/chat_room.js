@@ -32,7 +32,7 @@ function insertHTMLright(data){
     <div class="msg right-msg" id = "${data.count}">
         <div
         class="msg-img"
-        style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+        style="background-image: url(${data.avatar})"
         ></div>
         
         <div class="msg-bubble">
@@ -50,7 +50,7 @@ function insertHTMLleft(data){
     <div class="msg left-msg" id = "${data.count}">
         <div
         class="msg-img left-msg"
-        style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+        style="background-image: url(${data.avatar})"
         ></div>
         
         <div class="msg-bubble left-msg">

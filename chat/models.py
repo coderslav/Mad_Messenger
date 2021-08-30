@@ -7,7 +7,7 @@ class User(AbstractUser):
     SEX_CHOICES = (('M', 'Мужчина'), ('W', 'Женщина'), ('N', 'Неопределенный'))
     age = models.IntegerField(verbose_name='Возраст')
     sex = models.CharField(max_length=50, choices=SEX_CHOICES, default='N', verbose_name='Пол')
-    avatar = models.ImageField(upload_to='static/chat/images/', default='static/chat/images/default_avatar.jpg',
+    avatar = models.ImageField(upload_to='static/chat/images/', default='static/chat/images/default_avatar.png',
                                verbose_name='Аватар')
 
     def __str__(self):

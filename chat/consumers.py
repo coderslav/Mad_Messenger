@@ -50,16 +50,23 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
         time = event['time']
         room = event['room']
         count = event['count']
+        avatar = await self.get_user_avatar(event['author'])
+        print(avatar)
         await self.send(text_data=json.dumps(
             {
                 'author': author,
                 'message': message,
                 'time': time,
                 'room': room,
-                'count': count
+                'count': count,
+                'avatar': avatar
              }
         ))
         print(json.dumps(event))
+
+    @sync_to_async
+    def get_user_avatar(self, name):
+        return User.objects.get(username=name).avatar.url
 
     @sync_to_async
     def save_message(self, author, message, time, room, count):
@@ -115,16 +122,22 @@ class PrivateRoomConsumer(AsyncWebsocketConsumer):
         time = event['time']
         room = event['room']
         count = event['count']
+        avatar = await self.get_user_avatar(event['author'])
         await self.send(text_data=json.dumps(
             {
                 'author': author,
                 'message': message,
                 'time': time,
                 'room': room,
-                'count': count
+                'count': count,
+                'avatar': avatar
              }
         ))
         print(json.dumps(event))
+
+    @sync_to_async
+    def get_user_avatar(self, name):
+        return User.objects.get(username=name).avatar.url
 
     @sync_to_async
     def save_message(self, author, message, time, room, count):
