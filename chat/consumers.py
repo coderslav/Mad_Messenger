@@ -142,6 +142,6 @@ class PrivateRoomConsumer(AsyncWebsocketConsumer):
     @sync_to_async
     def save_message(self, author, message, time, room, count):
         author = User.objects.get(username=author)
-        room = Room.objects.get_or_create(name=room, is_private=True)[0]
+        room = Room.objects.get_or_create(name=room)[0]
         room.participants.add(author)
-        Message.objects.create(author=author, body=message, time=time, room=room, count_in_room=count)
+        Message.objects.create(author=author, body=message, time=time, room=room, count_in_room=count, is_private=True)

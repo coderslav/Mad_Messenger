@@ -1,0 +1,100 @@
+* {box-sizing: border-box;}
+
+body {
+  background: brown;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  margin: 0;
+}
+
+.main-form {
+  width: 400px;
+  margin: 20px auto;
+  border: solid white;
+  padding: 10px;
+}
+
+/* Стиль входного контейнера */
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+/* Стиль формы иконки */
+.icon {
+  padding: 10px;
+  background: rgb(55, 128, 73);
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Стиль полей ввода */
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid rgb(55, 128, 73);
+}
+
+/* Установите стиль для кнопки отправить */
+.btn {
+  background-color: rgb(55, 128, 73);
+  color: white;
+  font-size: 16px;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-family: "Bodoni 72", serif
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.fa-user {
+  font-style: normal;
+}
+
+.back {
+  font-size: 30px;
+  color: white;
+  margin-top: 0;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.back:hover {
+  cursor: pointer;
+}
+img.user-pic{
+  width:110px;
+  height: 110px;
+  border-radius: 100%;
+  background: rgba(255,255,255,0.7);
+  border: 5px solid rgba(255,255,255,1);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+.title-messenger{
+  font-size: 2.0em;
+  font-weight: 400;
+  font-family: 'Bodoni 72 Smallcaps', sans-serif;
+  text-align: center;
+  color: #FFF;
+  margin: 20px;
+}

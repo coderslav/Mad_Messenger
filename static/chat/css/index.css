@@ -11,14 +11,12 @@
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
-
 body{
 	background-color: brown;
-	font-family: 'Bodoni 72 Smallcaps', sans-serif;
+	font-family: "Bodoni 72", serif;
 	text-align: center;
 	color: #FFF;
 }
-
 button{
 	background-color: #2b2b2b;
 	font-family: 'Oswald', sans-serif;
@@ -33,37 +31,62 @@ button{
 	transition: color 0.5s, background-color 0.5s;
 	cursor: pointer;
 }
-
 button:hover{
 	background-color: #FFF;
 	color: #2b2b2b;
 }
-
 .start-button:hover{
 	animation: shake 0.5s;
 	animation-iteration-count: infinite;
 }
-
 p{
-  font-family: "Bodoni 72", serif;
-  font-size: 25px;
+	font-size: 25px;
+	margin: 20px 0 20px 0;
 }
-
 #start-page{
 	max-width: 100%;
 	max-height: 100%;
-	margin-top: 18%;
+	margin-top: 15%;
+	margin-bottom: 15%;
 }
-
 #start-page > h1{
 	font-size: 3.3em;
 	font-weight: 400;
+	font-family: 'Bodoni 72 Smallcaps', sans-serif;
 }
-
 #start-page > h2{
 	font-size: 1.25em;
 	font-weight: 400;
-	margin: 15px 0 20px 0;
+	margin: 20px 0 20px 0;
+}
+.chat-list-title {
+	font-size: 2.7em;
+}
+.chat-list {
+	display: inline-block;
+	margin: 15px;
+	background-color: rgb(55, 128, 73);
+	border: solid white;
+	padding: 5px;
+}
+.chat-list-roomname {
+	font-size: 30px;
+	text-align: left;
+	margin-top: 0;
+}
+.chat-list-roomname:hover {
+	cursor: pointer;
+}
+.chat-list-users{
+	text-align: left;
+	list-style-type: none;
+	padding-left: 0;
 
-
+}
+.user-name {
+	font-size: 20px;
+	margin: 2px;
+}
+.user-name:hover {
+	cursor: pointer;
 }

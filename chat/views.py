@@ -10,7 +10,7 @@ def index(request):
 
 
 def chat_room(request, chat_room_name):
-    messages = Message.objects.filter(room__name=chat_room_name)  # можно добавить кол-во сообщений через индексирование
+    messages = Message.objects.filter(room__name=chat_room_name).filter(is_private=False)  # можно добавить кол-во сообщений через индексирование
     if not request.user.username:
         username_str = 'Anonymous'
     else:
@@ -28,9 +28,9 @@ def private_room(request, private_room_name):
     # if request.user.username != participant_1_name and request.user.username != participant_2_name:
     #     return redirect(reverse('index'))
     alter_private_room_name = f'{participant_2_name}.{participant_1_name}'
-    if Room.objects.filter(name=private_room_name).filter(is_private=True).exists():
-        messages = Message.objects.filter(Q(room__name=private_room_name) | Q(room__is_private=True)).order_by('date')
-    elif Room.objects.filter(name=alter_private_room_name).filter(is_private=True).exists():
+    if Room.objects.filter(name=private_room_name).filter(message__is_private=True).exists():
+        messages = Message.objects.filter(room__name=private_room_name).filter(is_private=True).order_by('date')
+    elif Room.objects.filter(name=alter_private_room_name).filter(message__is_private=True).exists():
         return redirect(reverse('private_room', args=[alter_private_room_name]))
     else:
         messages = []

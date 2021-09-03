@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование профиля</title>
+    <link href="../../static/chat/css/user_profile_dashboard.css" rel="stylesheet">
+</head>
+<body>
+<h1 class="title-messenger">Mad_Messenger</h1>
+<form class="main-form">
+    <p class="back">&#8592</p>
+    <h2>Редактирование Профиля</h2>
+    <h2>Название профиля</h2>
+    <img src="../../static/chat/images/admin-avatar.png" alt="Картинка профиля" class="user-pic"/>
+  <div class="input-container">
+    <i class="fa fa-user icon">ID</i>
+    <input class="input-field" type="text" placeholder="Имя пользователя" name="usrnm">
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-envelope icon">&#9993</i>
+    <input class="input-field" type="text" placeholder="Почта" name="email">
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-key icon">&#128273</i>
+    <input class="input-field" type="password" placeholder="Пароль" name="psw">
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-avatar icon">&#128444</i>
+    <input class="input-field" type="file" placeholder="Аватар" name="avatar" accept="image/png, image/jpeg">
+  </div>
+  <button type="submit" class="btn">Обновить данные</button>
+</form>
+</body>
+</html>

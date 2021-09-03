@@ -21,7 +21,6 @@ class User(AbstractUser):
 class Room (models.Model):
     name = models.CharField(max_length=50, unique=True, verbose_name='Название комнаты')
     date = models.DateTimeField(auto_now_add=True, verbose_name='Дата и время отправки создания комнаты')
-    is_private = models.BooleanField(default=False, verbose_name='Является ли комната приватной')
     participants = models.ManyToManyField(User, blank=True, verbose_name='Юзеры комнаты')
 
     def __str__(self):
@@ -39,6 +38,7 @@ class Message (models.Model):
     time = models.CharField(max_length=10, default='00:00:00', verbose_name='Локальное время отправки')
     room = models.ForeignKey(Room, on_delete=models.CASCADE, verbose_name='Чат комната')
     count_in_room = models.CharField(max_length=255, verbose_name='Уникальный идентификатор')
+    is_private = models.BooleanField(default=False, verbose_name='Является ли сообщение приватным')
 
     def __str__(self):
         return f'{self.author}: {self.body[:15]}...'

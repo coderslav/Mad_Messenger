@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: brown;
+  background-size: cover;
+}
+
+.container {
+  width: 400px;
+  height: 500px;
+  background-color: rgb(55, 128, 73);
+  margin: 20px auto;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.back{
+  font-size: 30px;
+  color: rgba(255,255,255,0.7);
+  padding: 10px;
+  margin-left: 10px;
+  margin-top:20px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.back:hover{
+  cursor: pointer;
+}
+.edit{
+  font-size: 20px;
+  color: rgba(255,255,255,0.7);
+  padding: 10px;
+  margin-top:20px;
+  font-weight: bold;
+  margin-left: 170px;
+  display: inline-block;
+}
+.edit:hover{
+  cursor: pointer;
+}
+
+div.middle{
+  position: relative;
+  text-align: center;
+  top: 70px;
+}
+
+img.user-pic{
+  width:110px;
+  height: 110px;
+  border-radius: 100%;
+  background: rgba(255,255,255,0.7);
+  border: 5px solid rgba(255,255,255,1);
+}
+
+h4.name{
+  font-size: 18px;
+  color: rgba(255,255,255,0.8);
+  padding: 10px;
+}
+
+h4.rooms{
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  padding: 10px;
+  padding-top: 0;
+}
+
+.btn-send
+{
+  padding: 15px 70px;
+  top: -22px;
+  background: rgba(255,255,255,1);
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 45px rgb(55, 128, 73);
+  border: 1px solid transparent;
+}
+
+.btn-send:hover
+{
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: brown;
+  color: rgba(255,255,255,1);
+}
+
+.title-messenger{
+  font-size: 2.0em;
+  font-weight: 400;
+  font-family: 'Bodoni 72 Smallcaps', sans-serif;
+  text-align: center;
+  color: #FFF;
+  margin: 20px;
+}

@@ -9,7 +9,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{{ talker_1.username }} & {{ talker_2.username }}</title>
     <link href="{% static 'chat/css/private_room.css' %}" rel="stylesheet">
 </head>
 <body>
@@ -69,6 +69,7 @@
     <input type="button" class="msger-send-btn" id="submit" value="Отправить">
 </form>
 </section>
+<h1 class="title-messenger">Mad_Messenger</h1>
     <script src="{% static 'chat/js/private_room.js'%}"></script>
 </body>
 </html>
