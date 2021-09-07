@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from .models import Message, User, Room
 from rest_framework import generics
 from chat.serializers import ChatUserDetailsSerializer
-from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 
 def index(request):
@@ -22,6 +22,7 @@ def chat_room(request, chat_room_name):
     })
 
 
+@login_required
 def private_room(request, private_room_name):
     participant_1_name, participant_2_name = private_room_name.split('.')
     # TODO Деактивировать тестовый код в следующем TODO после тестов. И активировать закомментированный код:

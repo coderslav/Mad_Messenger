@@ -15,6 +15,8 @@ h2 {
   margin: 20px auto;
   border: solid white;
   padding: 10px;
+  font-family: "Bodoni 72", serif;
+  color: white;
 }
 
 /* Стиль входного контейнера */
@@ -23,6 +25,14 @@ h2 {
   width: 100%;
   margin-bottom: 15px;
   margin-top: 15px;
+}
+
+p input {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  font-family: "Bodoni 72", serif;
+  font-size: 15px;
 }
 
 /* Стиль формы иконки */
@@ -39,6 +49,8 @@ h2 {
   width: 100%;
   padding: 10px;
   outline: none;
+  font-family: "Bodoni 72", serif;
+  font-size: 15px;
 }
 
 .input-field:focus {
@@ -47,19 +59,18 @@ h2 {
 
 /* Установите стиль для кнопки отправить */
 .btn {
-  background-color: rgb(55, 128, 73);
+  background: rgb(40, 100, 56);
   color: white;
-  font-size: 16px;
+  font-size: 20px;
   padding: 15px 20px;
   border: none;
   cursor: pointer;
   width: 100%;
-  opacity: 0.9;
   font-family: "Bodoni 72", serif
 }
 
 .btn:hover {
-  opacity: 1;
+  background: rgb(55, 128, 73);
 }
 
 .fa-user {
@@ -97,4 +108,24 @@ img.user-pic{
   text-align: center;
   color: #FFF;
   margin: 20px;
+}
+
+a:link, a:visited {
+  background-color: rgb(40, 100, 56);
+  color: white;
+  padding: 6px 11px;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  background-color: rgb(55, 128, 73);
+}
+
+p label {
+  display: none;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
