@@ -7,9 +7,3 @@ class CustomSignUpForm(SignupForm):
                              widget=forms.TextInput(
                                  attrs={"type": "number", "placeholder": "Возраст", "min": "1"}
                              ))
-
-    def save(self, request):
-        user = super(CustomSignUpForm, self).save(request)
-        user.age = int(self.cleaned_data['age'])
-        user.save()
-        return user

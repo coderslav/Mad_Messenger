@@ -2,16 +2,20 @@
 <html lang="en">
   <head>
     <title>Вход</title>
+    <link href="../../static/chat/css/user_profile_edit_signup_login.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Вход</h1>
+    <h1 class="title-messenger">Mad_Messenger</h1>
     <form class="main-form" method="POST" action="{% url 'account_login' %}">
-      {% csrf_token %}
-      {{ form.as_p }}
-      {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-      {% endif %}
-      <button class="primaryAction" type="submit">Войти</button>
+        <p class="back">&#8592</p>
+        <h2>Вход</h2>
+        <h2>Не зарегистрированы? <a href="{{ signup_url }}">Регистрация</a></h2>
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="btn" type="submit">Войти</button>
     </form>
   </body>
 </html>

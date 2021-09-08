@@ -157,3 +157,5 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_FORMS = {'signup': 'chat.forms.CustomSignUpForm'}
+ACCOUNT_ADAPTER = 'chat.adapter.MyAccountAdapter'
+LOGIN_REDIRECT_URL = 'index'

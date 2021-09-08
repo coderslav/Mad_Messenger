@@ -3,6 +3,8 @@ from .models import Message, User, Room
 from rest_framework import generics
 from chat.serializers import ChatUserDetailsSerializer
 from django.contrib.auth.decorators import login_required
+from allauth.account.views import SignupView
+from chat.forms import CustomSignUpForm
 
 
 def index(request):
@@ -53,3 +55,7 @@ def private_room(request, private_room_name):
 
 class CreateChatUserViewAPI(generics.CreateAPIView):
     serializer_class = ChatUserDetailsSerializer
+
+
+class CustomSignUp(SignupView):
+    form_class = CustomSignUpForm

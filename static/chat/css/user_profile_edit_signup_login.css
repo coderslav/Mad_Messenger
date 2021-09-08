@@ -113,9 +113,10 @@ img.user-pic{
 a:link, a:visited {
   background-color: rgb(40, 100, 56);
   color: white;
-  padding: 6px 11px;
+  padding: 6px;
   text-align: center;
   text-decoration: none;
+  font-size: 0.8em;
 }
 
 a:hover, a:active {
@@ -128,4 +129,14 @@ p label {
 
 input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
+}
+
+#id_remember {
+  display: inline-block;
+  width: auto;
+  cursor: pointer;
+}
+
+label[for="id_remember"] {
+  display: inline-block;
 }
