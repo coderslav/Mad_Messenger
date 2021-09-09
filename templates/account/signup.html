@@ -7,6 +7,12 @@
   <body>
   <h1 class="title-messenger">Mad_Messenger</h1>
     <form class="main-form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        {% if messages %}
+            <ul class="messagelist">
+                {% for message in messages %}
+                <li>{{message}}</li>
+                {% endfor %}
+        {% endif %}
         <p class="back">&#8592</p>
         <h2>Регистрация</h2>
         <h2>Уже зарегистрированы? <a href="{{ login_url }}">Войти</a></h2>
@@ -15,7 +21,7 @@
       {% if redirect_field_value %}
       <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
       {% endif %}
-      <button type="submit" class="btn">Регистрация &raquo;</button>
+      <button type="submit" class="btn">Регистрация</button>
     </form>
   </body>
 </html>

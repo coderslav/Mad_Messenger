@@ -1,8 +1,8 @@
-from rest_framework import serializers
+from rest_framework.serializers import ModelSerializer
 from chat.models import User
 
 
-class ChatUserDetailsSerializer(serializers.ModelSerializer):
+class DetailUserSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
+        fields = ['first_name', 'last_name', 'username', 'email', 'avatar']
