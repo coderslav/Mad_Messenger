@@ -90,3 +90,6 @@ p{
 .user-name:hover {
 	cursor: pointer;
 }
+.custom-button {
+	display: none;
+}

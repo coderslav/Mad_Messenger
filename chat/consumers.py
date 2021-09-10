@@ -22,7 +22,6 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
         )
 
     async def receive(self, text_data=None, bytes_data=None):
-        print(text_data)
         text_data_object = json.loads(text_data)
         author = text_data_object['author']
         message = text_data_object['message']
@@ -51,7 +50,6 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
         room = event['room']
         count = event['count']
         avatar = await self.get_user_avatar(event['author'])
-        print(avatar)
         await self.send(text_data=json.dumps(
             {
                 'author': author,
@@ -62,7 +60,6 @@ class ChatRoomConsumer(AsyncWebsocketConsumer):
                 'avatar': avatar
              }
         ))
-        print(json.dumps(event))
 
     @sync_to_async
     def get_user_avatar(self, name):
@@ -94,7 +91,6 @@ class PrivateRoomConsumer(AsyncWebsocketConsumer):
         )
 
     async def receive(self, text_data=None, bytes_data=None):
-        print(text_data)
         text_data_object = json.loads(text_data)
         author = text_data_object['author']
         message = text_data_object['message']
@@ -133,7 +129,6 @@ class PrivateRoomConsumer(AsyncWebsocketConsumer):
                 'avatar': avatar
              }
         ))
-        print(json.dumps(event))
 
     @sync_to_async
     def get_user_avatar(self, name):

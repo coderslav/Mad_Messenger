@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from .models import Message, User, Room
-from rest_framework.generics import RetrieveUpdateDestroyAPIView
-from chat.serializers import DetailUserSerializer
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, RetrieveAPIView, ListAPIView
+from chat.serializers import DetailUserSerializer, PublicRoomsSerializer
 from django.contrib.auth.decorators import login_required
 from chat.api_permissions import IsOwnerOrReadOnly
 from rest_framework.permissions import IsAuthenticated
@@ -11,6 +11,7 @@ def index(request):
     return render(request, 'chat/index.html', {})
 
 
+@login_required
 def chat_room(request, chat_room_name):
     messages = Message.objects.filter(room__name=chat_room_name).filter(is_private=False)  # можно добавить кол-во сообщений через индексирование
     if not request.user.username:
@@ -57,4 +58,16 @@ class DetailUserViewAPI(RetrieveUpdateDestroyAPIView):
     serializer_class = DetailUserSerializer
     queryset = User.objects.all()
     lookup_field = 'username'
-    permission_classes = [IsOwnerOrReadOnly, IsAuthenticated]
+    # permission_classes = [IsOwnerOrReadOnly, IsAuthenticated]
+
+
+class GetCurrentUserViewAPI(RetrieveAPIView):
+    serializer_class = DetailUserSerializer
+
+    def get_object(self):
+        return self.request.user
+
+
+class GetPublicRoomsViewAPI(ListAPIView):
+    queryset = Room.objects.exclude(message__is_private=True)
+    serializer_class = PublicRoomsSerializer

@@ -1,3 +1,4 @@
+const host = 'http://' + window.location.host + '/'
 const chatRoomName = JSON.parse(document.getElementById('chat-room-name').textContent);
 const username = JSON.parse(document.getElementById('username').textContent);
 const timeNow = new Date().toLocaleTimeString().slice(0,-3);
@@ -87,3 +88,5 @@ document.querySelector('#input').addEventListener('keypress', function (e){
         inputMessage()
     }
 });
+document.getElementById('titleMessenger').addEventListener('click', ()=>
+    location.replace(`${host}chat/`));
