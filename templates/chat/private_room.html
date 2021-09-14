@@ -28,9 +28,15 @@
       <span><i class="fas fa-cog"></i></span>
     </div>
   </header>
-
+    {% if messages %}
+      <ul class="messagelist">
+        {% for message in messages %}
+            <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   <main class="msger-chat" id="msger-chatarea">
-      {% for message in messages %}
+      {% for message in chat_messages %}
           {% if message.author.username == username_str %}
               <div class="msg right-msg" id = "{{ message.count_in_room }}">
                     <div

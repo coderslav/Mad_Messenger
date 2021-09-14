@@ -6,32 +6,40 @@
     <link href="../../../static/chat/css/user_profile_edit_signup_login.css" rel="stylesheet">
 </head>
 <body>
+{% if messages %}
+      <ul class="messagelist">
+        {% for message in messages %}
+            <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+{% endif %}
 <h1 class="title-messenger">Mad_Messenger</h1>
 <form class="main-form">
-    <p class="back">&#8592</p>
+    <p class="back" id="backButton">&#8592</p>
     <h2>Редактирование Профиля</h2>
-    <h2>Название профиля</h2>
-    <img src="../../../static/chat/images/admin-avatar.png" alt="Картинка профиля" class="user-pic"/>
+    <h2 id="profileName"></h2>
+    <img src="" alt="Картинка профиля" class="user-pic" id="profileAvatar"/>
   <div class="input-container">
     <i class="fa fa-user icon" style="padding-top: 13px">ID</i>
-    <input class="input-field" type="text" placeholder="Имя пользователя" name="usrnm">
+    <input class="input-field" type="text" placeholder="" name="usrnm" id="profileInputUsername">
   </div>
 
   <div class="input-container">
     <i class="fa fa-envelope icon">&#9993</i>
-    <input class="input-field" type="text" placeholder="Почта" name="email">
+    <input class="input-field" type="text" placeholder="" name="email" id="profileInputEmail">
   </div>
 
   <div class="input-container">
     <i class="fa fa-key icon">&#128273</i>
-    <div class="input-field-password">Сменить пароль</div>
+    <div class="input-field-password" id="passwordChangeButton">Сменить пароль</div>
   </div>
 
   <div class="input-container">
     <i class="fa fa-avatar icon">&#128444</i>
-    <input class="input-field" type="file" placeholder="Аватар" name="avatar" accept="image/png, image/jpeg">
+    <input class="input-field" type="file" name="avatar" accept="image/png, image/jpeg" id="profileInputAvatar">
   </div>
-  <button type="submit" class="btn">Обновить данные</button>
+  <button type="button" class="btn" id="submitButton">Обновить данные</button>
 </form>
+<script src="../../../static/chat/js/user_profile_edit.js"></script>
 </body>
 </html>

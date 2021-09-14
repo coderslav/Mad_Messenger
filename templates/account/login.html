@@ -7,7 +7,7 @@
   <body>
     <h1 class="title-messenger">Mad_Messenger</h1>
     <form class="main-form" method="POST" action="{% url 'account_login' %}">
-        <p class="back">&#8592</p>
+        <p class="back" id="backButton">&#8592</p>
         <h2>Вход</h2>
         <h2>Не зарегистрированы? <a href="{{ signup_url }}">Регистрация</a></h2>
         {% csrf_token %}
@@ -17,5 +17,6 @@
         {% endif %}
         <button class="btn" type="submit">Войти</button>
     </form>
+  <script src="../../static/chat/js/login.js"></script>
   </body>
 </html>

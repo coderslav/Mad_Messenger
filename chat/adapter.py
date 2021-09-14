@@ -11,6 +11,7 @@ class MyAccountAdapter(DefaultAccountAdapter):
         email = data.get("email")
         username = data.get("username")
         user.age = data.get("age")
+        user.sex = data.get("sex")
         user_email(user, email)
         user_username(user, username)
         if first_name:

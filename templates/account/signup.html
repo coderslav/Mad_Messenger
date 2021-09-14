@@ -12,8 +12,9 @@
                 {% for message in messages %}
                 <li>{{message}}</li>
                 {% endfor %}
-        {% endif %}
-        <p class="back">&#8592</p>
+            </ul>
+                {% endif %}
+        <p class="back" id="backButton">&#8592</p>
         <h2>Регистрация</h2>
         <h2>Уже зарегистрированы? <a href="{{ login_url }}">Войти</a></h2>
       {% csrf_token %}
@@ -23,5 +24,6 @@
       {% endif %}
       <button type="submit" class="btn">Регистрация</button>
     </form>
+  <script src="../../static/chat/js/signup.js"></script>
   </body>
 </html>

@@ -7,6 +7,13 @@
 </head>
 <body>
     <header>
+        {% if messages %}
+              <ul class="messagelist">
+                {% for message in messages %}
+                    <li>{{message}}</li>
+                {% endfor %}
+              </ul>
+        {% endif %}
         <button class="custom-button" id="personalAccountButton">Личный кабинет</button>
         <button class="custom-button" id="registrationButton">Регистрация</button>
         <button class="custom-button" id="loginButton">Логин</button>

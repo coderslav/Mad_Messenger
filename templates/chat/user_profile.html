@@ -2,21 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Профиль пользователя</title>
+    <title id="userProfileTitle"></title>
     <link href="../../../static/chat/css/user_profile.css" rel="stylesheet">
 </head>
 <body>
+{% if messages %}
+      <ul class="messagelist">
+        {% for message in messages %}
+            <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+{% endif %}
 <h1 class="title-messenger">Mad_Messenger</h1>
 <div class="container">
   <div class="header">
-      <p class="back">&#8592</p>
+      <p class="back" id="backButton">&#8592</p>
   </div>
-  <div class="middle">
-    <img src="../../../static/chat/images/admin-avatar.png" alt="Картинка профиля" class="user-pic" />
-    <h4 class="name">Имя пользователя</h4>
-    <h4 class="rooms">Его комнаты</h4>
-    <button class="btn-send">Отправить личное сообщение</button><br/>
+  <div class="middle" id="pageContentContainer">
+    <img src="" alt="Картинка профиля" class="user-pic" id="userAvatar"/>
+    <h4 class="name" id="userID"></h4>
+    <h4 class="rooms" id="userRooms"><i style="font-size: 16px; color: rgba(255,255,255,0.65)">Комнаты: </i></h4>
+    <button class="btn-send" id="sendPrivateMessage">Отправить личное сообщение</button><br/>
   </div>
 </div>
+<script src="../../../static/chat/js/user_profile.js"></script>
 </body>
 </html>

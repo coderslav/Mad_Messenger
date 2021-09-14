@@ -3,6 +3,9 @@ const chatRoomName = JSON.parse(document.getElementById('private-room-name').tex
 const username = JSON.parse(document.getElementById('username').textContent);
 const timeNow = new Date().toLocaleTimeString().slice(0,-3);
 const messages = document.getElementById('msger-chatarea');
+const userUserUsernameTags = document.querySelectorAll('.msg-info-name');
+const userUserAvatars = document.querySelectorAll('.msg-img');
+
 messages.scrollTop = messages.scrollHeight;
 let counter = updateCounter();
 
@@ -91,3 +94,11 @@ document.querySelector('#input').addEventListener('keypress', function (e){
 document.getElementById('titleMessenger').addEventListener('click', ()=>
     location.replace(`${host}chat/`));
 
+userUserUsernameTags.forEach(element => element.addEventListener('click', ()=>
+    location.replace(`${host}accounts/account_details/${element.textContent.slice(0, -1)}/`)));
+userUserAvatars.forEach(element => element.addEventListener('click', ()=>
+    location.replace(`${host}accounts/account_details/${element.nextElementSibling.firstElementChild.firstElementChild.textContent.slice(0, -1)}/`)));
+
+if (document.querySelector('.messagelist')){
+    setTimeout(()=>document.querySelector('.messagelist').remove(), 3000);
+}

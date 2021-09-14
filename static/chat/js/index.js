@@ -9,6 +9,7 @@ const greetings = document.getElementById('greetings');
 const input = document.getElementById('chat-name-input');
 const startButton = document.getElementById('startButton');
 const roomsBlock = document.querySelector('.rooms-block');
+const chatListTitle = document.querySelector('.chat-list-title');
 
 //Ивенты
 function redirectRoomEvent(roomName){
@@ -29,6 +30,7 @@ if (currentUser.username) {
   greetings.innerHTML = `Привет, ${currentUser.username}!`;
   personalAccountButton.style.display = 'inline-block';
   logoutButton.style.display = 'inline-block';
+
   // Создание чата
   startButton.addEventListener('click', ()=> {
   if (input.value) {
@@ -67,10 +69,15 @@ input.addEventListener('input', function(){
   this.value = this.value.replace(' ', '')
 });
 
+//Убираем нотификации, если есть
+if (document.querySelector('.messagelist')){
+    setTimeout(()=>document.querySelector('.messagelist').remove(), 3000);
+}
+
 //Получение комнат
 fetch(`${host}chat/api/v1/get_public_rooms/`)
     .then(response => response.json())
-    .then(data => {data.forEach(obj => {
+    .then(data => {if(data.length === 0){chatListTitle.style.display = 'none';}data.forEach(obj => {
       roomsBlock.insertAdjacentHTML("beforeend",
           `<section class="chat-list">
                   <p class="chat-list-roomname" onclick="redirectRoomEvent(this.textContent.slice(0,-1))">${obj['name']}:</p>

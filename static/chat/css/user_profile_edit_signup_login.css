@@ -35,6 +35,15 @@ p input {
   font-size: 15px;
 }
 
+p select {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  font-family: "Bodoni 72", serif;
+  font-size: 15px;
+  -webkit-appearance: caret;
+}
+
 /* Стиль формы иконки */
 .icon {
   padding: 10px;
@@ -156,6 +165,24 @@ label[for="id_remember"] {
     padding: 10px 10px 10px 10px;
     margin: 0 0 10px 0;
     background: rgb(55, 128, 73) 40px 12px no-repeat;
+    background-size: 16px auto;
+    color: white;
+}
+
+.messagelist-error {
+    padding: 0;
+    margin: 0;
+}
+
+.messagelist-error li {
+    display: block;
+    font-family: "Bodoni 72", serif;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    margin: 0 0 10px 0;
+    background: rgb(204, 1, 1) 40px 12px no-repeat;
     background-size: 16px auto;
     color: white;
 }

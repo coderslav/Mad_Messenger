@@ -5,7 +5,7 @@ from chat.models import User, Room
 class DetailUserSerializer(ModelSerializer):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'avatar']
+        fields = ['username', 'email', 'avatar']
 
 
 class PublicRoomsSerializer(ModelSerializer):

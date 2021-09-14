@@ -75,6 +75,7 @@ body {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  cursor: pointer;
 }
 .msg-text {
   word-wrap: break-word;
@@ -93,6 +94,7 @@ body {
 .msg-info-name {
   margin-right: 10px;
   font-weight: bold;
+  cursor: pointer;
 }
 .msg-info-time {
   font-size: 0.85em;
@@ -177,4 +179,20 @@ body {
   cursor: pointer;
 }
 
+.messagelist {
+    padding: 0;
+    margin: 0;
+}
 
+.messagelist li {
+    display: block;
+    font-family: "Bodoni 72", serif;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    margin: 0 0 10px 0;
+    background: rgb(55, 128, 73) 40px 12px no-repeat;
+    background-size: 16px auto;
+    color: white;
+}
